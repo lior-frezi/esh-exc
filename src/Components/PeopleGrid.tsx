@@ -23,8 +23,11 @@ const Body = styled.div`
   flex-direction: column;
 `;
 
-const HeaderRow = styled.tr`
+const HeaderRow = styled.thead`
   font-weight: bold;
+  & th {
+    text-align: start;
+  }
 `;
 
 const Input = styled.input`
@@ -103,77 +106,81 @@ export function PeopleGrid({ data }: PeopleGridProps) {
     <Body>
       <table>
         <HeaderRow>
-          <td>Name</td>
-          <td>Gender</td>
-          <td>Birth</td>
-          <td>Mass</td>
-          <td>Hair</td>
-          <td>Skin</td>
-          <td>Eye</td>
-          <td>
-            <Button onClick={handleAddClick} disabled={isEditOpen}>
-              +
-            </Button>
-          </td>
-        </HeaderRow>
-        {isEditOpen && (
           <tr>
-            <td>
-              <Input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </td>
-            <td>
-              <Input
-                type="text"
-                value={gender}
-                onChange={(e) => setGender(e.target.value)}
-              />
-            </td>
-            <td>
-              <Input
-                type="text"
-                value={birth}
-                onChange={(e) => setBirth(e.target.value)}
-              />
-            </td>
-            <td>
-              <Input
-                type="text"
-                value={mass}
-                onChange={(e) => setMass(e.target.value)}
-              />
-            </td>
-            <td>
-              <Input
-                type="text"
-                value={hair}
-                onChange={(e) => setHair(e.target.value)}
-              />
-            </td>
-            <td>
-              <Input
-                type="text"
-                value={skin}
-                onChange={(e) => setSkin(e.target.value)}
-              />
-            </td>
-            <td>
-              <Input
-                type="text"
-                value={eye}
-                onChange={(e) => setEye(e.target.value)}
-              />
-            </td>
-            <td>
-              <Button onClick={handleOkClick}>ok</Button>
-            </td>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Birth</th>
+            <th>Mass</th>
+            <th>Hair</th>
+            <th>Skin</th>
+            <th>Eye</th>
+            <th>
+              <Button onClick={handleAddClick} disabled={isEditOpen}>
+                +
+              </Button>
+            </th>
           </tr>
-        )}
-        {addedRows.map(mapData)}
-        {data.map(mapData)}
+        </HeaderRow>
+        <tbody>
+          {isEditOpen && (
+            <tr>
+              <td>
+                <Input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </td>
+              <td>
+                <Input
+                  type="text"
+                  value={gender}
+                  onChange={(e) => setGender(e.target.value)}
+                />
+              </td>
+              <td>
+                <Input
+                  type="text"
+                  value={birth}
+                  onChange={(e) => setBirth(e.target.value)}
+                />
+              </td>
+              <td>
+                <Input
+                  type="text"
+                  value={mass}
+                  onChange={(e) => setMass(e.target.value)}
+                />
+              </td>
+              <td>
+                <Input
+                  type="text"
+                  value={hair}
+                  onChange={(e) => setHair(e.target.value)}
+                />
+              </td>
+              <td>
+                <Input
+                  type="text"
+                  value={skin}
+                  onChange={(e) => setSkin(e.target.value)}
+                />
+              </td>
+              <td>
+                <Input
+                  type="text"
+                  value={eye}
+                  onChange={(e) => setEye(e.target.value)}
+                />
+              </td>
+              <td>
+                <Button onClick={handleOkClick}>ok</Button>
+              </td>
+            </tr>
+          )}
+          {addedRows.map(mapData)}
+          {data.map(mapData)}
+        </tbody>
       </table>
     </Body>
   );
