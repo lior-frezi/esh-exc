@@ -1,21 +1,15 @@
 # Esh Exercise
-
-to install deps
-
+## install deps
 ```
 npm install
 ```
-
-to run in dev mode
-
+## run dev mode
+run the following command and copy the Local address to your browser
 ```
 npm run dev
 ```
-
-copy the host address to your browser.
-
+## Tests
 run some example tests
-
 ```
 npm run test
 ```
